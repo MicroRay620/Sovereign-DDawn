@@ -40,50 +40,53 @@ if enter_dungeon == "y":
         print("You recieve a sword!")
         sword = True
     #opening/door if statement
-    #start of the spider fight
-    while spider_hp >= 1:
-        if sword == True:
-            weapon = input("do you want to use your fist or sword ['f' or 's'] ")
-        else:
-            print("You will have to use your fist because you don't have a sword")
-            weapon = "f"
-        if weapon == "f":#start fist
-            fist = random.randint(8, 10)
-            crit_fist = random.randint(1,100)
-            if crit_fist <= 20:
-                fist = fist * 1.5
-                fist = int(fist)
-        spider_hp -= fist#end fist
-        if weapon == "s" and sword == True:
-            spider_hp -= sword
-        if spider_hp <= 0:
-            print("congradulations you killed the spider. You have still have", player_hp, "hp left")
-            break
-        else:
-            spider_dmg = random.randint(1 ,3) 
-            crit_spider = random.randint(1,100)
-            if crit_spider <= 20:
-                spider_dmg = spider_dmg * 2
-            player_hp -= spider_dmg
-            print(spider_hp)
-         #end of the spider fight
-    while spider_hp <= 0:
-        print("You move onward, drops of water echoing through the catacombs. You encounter a fork.")
-        print("One option goes to the right, the other goes forward.")
-        option_two = str(input("Which do you choose. ['r' or 'f'] "))
-        if option_two == "r":
-            print("You walk down the path, a torch illuminating the path.")
-            print("You go to the end and reach a chest.")
-            open_chest = str(input("Do you open the chest? ['y' or 'n'] "))
-            if open_chest == "y":
-                print("You open the chest and recieve an iron shield!")
-                shield = True
-                break
-            elif open_chest == "n":
-                print("You don't open the chest and you head back.")            
-        elif option_two == "f":
-            print("You move onward. Seeing a break in the path.")
-            #break two
+        #start of right path
+        print("You walk onwards down the right path. You notice a spider ahead.")
+        #fight ['y' or 'n'] input
+            #start of the spider fight
+        while spider_hp >= 1:
+                if sword == True:
+                    weapon = input("do you want to use your fist or sword ['f' or 's'] ")
+                else:
+                    print("You will have to use your fist because you don't have a sword")
+                    weapon = "f"
+                if weapon == "f":#start fist
+                    fist = random.randint(8, 10)
+                    crit_fist = random.randint(1,100)
+                    if crit_fist <= 20:
+                        fist = fist * 1.5
+                        fist = int(fist)
+                spider_hp -= fist#end fist
+                if weapon == "s" and sword == True:
+                    spider_hp -= sword
+                if spider_hp <= 0:
+                    print("congradulations you killed the spider. You have still have", player_hp, "hp left")
+                    break
+                else:
+                    spider_dmg = random.randint(1 ,3) 
+                    crit_spider = random.randint(1,100)
+                    if crit_spider <= 20:
+                        spider_dmg = spider_dmg * 2
+                    player_hp -= spider_dmg
+                    print(spider_hp)
+                #end of the spider fight
+        while spider_hp <= 0:
+                print("You move onward, drops of water echoing through the catacombs. You encounter a fork.")
+                print("One option goes to the right, the other goes forward.")
+                option_two = str(input("Which do you choose. ['r' or 'f'] "))
+                if option_two == "r":
+                    print("You walk down the path, a torch illuminating the path.")
+                    print("You go to the end and reach a chest.")
+                    open_chest = str(input("Do you open the chest? ['y' or 'n'] "))
+                    if open_chest == "y":
+                        print("You open the chest and recieve an iron shield!")
+                        shield = True
+                        break
+                    elif open_chest == "n":
+                        print("You don't open the chest and you head back.")            
+                elif option_two == "f":
+                    print("You move onward. Seeing a break in the path.")
+                    #break two
 elif enter_dungeon == "n":
     player_hp = 0 #need to get it so that this only happens here
     while player_hp <= 0:
