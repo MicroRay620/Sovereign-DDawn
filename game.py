@@ -85,5 +85,6 @@ if enter_dungeon == "y":
             print("You move onward. Seeing a break in the path.")
             #break two
 elif enter_dungeon == "n":
+    player_hp = 0 #need to get it so that this only happens here
     while player_hp <= 0:
         print("You died")
